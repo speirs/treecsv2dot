@@ -64,24 +64,25 @@ end
 
 # nodeを定義する出力
 def define_node(nid, label)
-  print "  #{id(nid)} [ label = \"#{escape_dq(label)}\" ];\n"
+#  print "  #{id(nid)} [ label = \"#{escape_dq(label)}\" ];\n"
+  print "  #{id(nid)} [ label = \"{#{escape_dq(label)}|#{id(nid)}\\l}\" ];\n"
   nid = nid + 1
 end
 
 # node間の関係を定義する出力
 def define_relation(id_a, id_b)
-  print "  #{id(id_a)} -- #{id(id_b)};\n"
+  print "  #{id(id_a)} -> #{id(id_b)};\n"
 end
 
 # ヘッダとフッタの定義
 def print_header(title)
   print <<EOS
-graph generated_data {
+digraph generated_data {
   // 全体設定 //
   graph [ // fontname = "Helvetica-Oblique",
 	  label = "\\n#{escape_dq(title)}",
-	  rankdir = LR ];
-  node [ shape = box ];
+	  rankdir = TB ];
+  node [ shape = record ];
 EOS
 end
 
