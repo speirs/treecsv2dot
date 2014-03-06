@@ -68,8 +68,8 @@ def id(nid):
 
 # nodeを定義する出力
 def define_node(nid, label):
-#  result = "%s [ label = \"%s\" ];\n" % (id(nid), escape_dq(label))
-   result = "  %s [ label = \"{%s|%s\l}\" ];" % (id(nid), escape_dq(label), id(nid))
+#   result = "  %s [ label = \"{%s|%s\l}\" ];" % (id(nid), escape_dq(label), id(nid))
+   result = "  %s [ label = \"%s\" ];" % (id(nid), escape_dq(label))
    print result
    nid += 1
    return nid
